@@ -1,21 +1,19 @@
+/**
+ * Simple HTTP server
+ */
 const http = require('http');
 
-const PORT = 1245;
-const HOST = 'localhost';
-const app = http.createServer();
-
-
-app.on('request', (_, res) => {
-  const responseText = 'Hello Holberton School!';
-
-  res.setHeader('Content-Type', 'text/plain');
-  res.setHeader('Content-Length', responseText.length);
-  res.statusCode = 200;
-  res.write(Buffer.from(responseText));
+const host = '127.0.0.1';
+const port = 1245;
+const app = http.createServer((req, resp) => {
+  // eslint-disable-next-line no-param-reassign
+  resp.statusCode = 200;
+  resp.setHeader('Content-Type', 'text/plain');
+  resp.end('Hello Holberton School!');
 });
 
-app.listen(PORT, HOST, () => {
-  process.stdout.write(`Server listening at -> http://${HOST}:${PORT}\n`);
+app.listen(port, host, () => {
+  console.log(`Server is live, running at http://${host}:${port}`);
 });
 
 module.exports = app;
