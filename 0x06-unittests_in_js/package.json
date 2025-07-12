@@ -5,6 +5,7 @@
   "main": "0-calcul.js",
   "dependencies": {},
   "devDependencies": {
+    "chai": "^4.3.7",
     "mocha": "^6.2.2"
   },
   "scripts": {
